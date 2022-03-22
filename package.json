@@ -1,0 +1,65 @@
+{
+  "name": "archetype-symfony",
+  "version": "3.0.0",
+  "description": "Runroom Symfony archetype",
+  "author": "@runroom",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Runroom/archetype-symfony.git"
+  },
+  "private": true,
+  "scripts": {
+    "start": "encore dev",
+    "watch": "encore dev --watch"
+  },
+  "engines": {
+    "node": ">=17"
+  },
+  "dependencies": {
+    "@runroom/purejs": "3.1.1",
+    "ckeditor4": "4.18.0",
+    "jquery": "3.6.0",
+    "jquery-validation": "1.19.3",
+    "js-cookie": "3.0.1",
+    "picturefill": "3.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "7.17.8",
+    "@babel/eslint-parser": "7.17.0",
+    "@babel/preset-env": "7.16.11",
+    "@runroom/npm-scripts": "1.2.8",
+    "@symfony/webpack-encore": "1.8.2",
+    "@types/jquery": "3.5.14",
+    "@types/jquery.validation": "1.16.7",
+    "@types/js-cookie": "3.0.1",
+    "@typescript-eslint/eslint-plugin": "5.16.0",
+    "@typescript-eslint/parser": "5.16.0",
+    "autoprefixer": "10.4.4",
+    "cssnano": "5.1.5",
+    "eslint": "8.11.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-webpack-plugin": "3.1.1",
+    "file-loader": "6.2.0",
+    "postcss": "8.4.12",
+    "postcss-at-rules-variables": "0.3.0",
+    "postcss-functions": "4.0.2",
+    "postcss-import": "14.0.2",
+    "postcss-loader": "6.2.1",
+    "postcss-mixins": "9.0.2",
+    "postcss-nested": "5.0.6",
+    "postcss-simple-vars": "6.0.3",
+    "postcss-sort-media-queries": "4.2.1",
+    "postcss-space": "1.0.0",
+    "prettier": "2.6.0",
+    "stylelint": "14.6.0",
+    "stylelint-config-prettier": "9.0.3",
+    "stylelint-prettier": "2.0.0",
+    "stylelint-webpack-plugin": "3.2.0",
+    "tailwindcss": "3.0.23",
+    "ts-loader": "9.2.8",
+    "typescript": "4.6.2",
+    "webpack-notifier": "1.15.0"
+  }
+}

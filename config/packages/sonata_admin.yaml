@@ -1,0 +1,37 @@
+sonata_admin:
+    title: Backoffice
+    title_logo: build/img/logo_backoffice.png
+    show_mosaic_button: false
+    security:
+        handler: sonata.admin.security.handler.role
+    options:
+        default_admin_route: edit
+        html5_validate: false
+    global_search:
+        admin_route: edit
+    breadcrumbs:
+        child_admin_route: edit
+    dashboard:
+        groups:
+            runroom:
+                label: Base
+                items:
+                    - Runroom\SeoBundle\Admin\MetaInformationAdmin
+                    - Runroom\BasicPageBundle\Admin\BasicPageAdmin
+                    - Runroom\TranslationBundle\Admin\TranslationAdmin
+                    - Runroom\RedirectionBundle\Admin\RedirectAdmin
+                    - label: Cookies
+                      route: admin_runroom_cookies_cookiespage_edit
+                      route_params: { id: 1 }
+            users:
+                label: Users
+                icon: <i class="fa fa-users"></i>
+                on_top: true
+                items:
+                    - sonata.user.admin.user
+            media:
+                label: Media
+                icon: <i class="fa fa-photo"></i>
+                on_top: true
+                items:
+                    - sonata.media.admin.media

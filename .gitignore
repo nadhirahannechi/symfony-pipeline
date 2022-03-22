@@ -1,0 +1,32 @@
+# GENERATED FILES
+.DS_Store
+.DS_Store?
+.idea
+.vs
+
+# MKCERT
+.certs
+
+# SYMFONY
+/.env.local
+/.env.*.local
+/.env.local.php
+.php-cs-fixer.php
+.php-cs-fixer.cache
+.phpunit.result.cache
+config/secrets/*/*.decrypt.private.php
+coverage
+var
+vendor
+phpstan.neon
+phpunit.xml
+public/bundles
+public/uploads/*
+!public/uploads/.gitignore
+public/build/*
+!public/build/.gitignore
+
+# NODE
+npm-debug.log
+node_modules
+tsconfig.tsbuildinfo

@@ -1,0 +1,5 @@
+{% set svg = svg|default(false) %}
+
+{% if svg %}
+    {{ source(asset('build/svg/' ~ svg ~ '.svg')|replace({'/build/': ''}), true)|raw }}
+{% endif %}

@@ -1,0 +1,58 @@
+{% extends 'layouts/basics.html.twig' %}
+
+{% block metas %}
+    {{ parent() }}
+    <meta name="robots" content="noindex,follow" />
+{% endblock %}
+
+{% block contentId 'form' %}
+{% block contentClass 'pt-12 pb-8' %}
+
+{% block content %}
+    <h1>{{ model.cookiesPage.title }}</h1>
+    <div class="wysiwyg ">{{ model.cookiesPage.content|raw }}</div>
+    {% form_theme model.formView 'helpers/fields.html.twig' %}
+
+    {{- form_start(model.formView, {attr: {
+        class: 'wysiwyg js-cookies-form'
+    }}) -}}
+        <section class="py-8">
+            <div class="py-4 s768:flex s768:justify-between">
+                <h2>{{ 'cookies.mandatory_cookies.title'|trans }}</h2>
+                {{- form_row(model.formView.mandatoryCookies) -}}
+            </div>
+            <p>{{ 'cookies.mandatory_cookies.text'|trans }}</p>
+            {{ include('components/cookies-list.html.twig', {
+                cookiesList: model.cookies.mandatory_cookies
+            }) }}
+        </section>
+        <section class="py-8">
+            <div class="py-4 s768:flex s768:justify-between">
+                <h2>{{ 'cookies.performance_cookies.title'|trans }}</h2>
+                {{- form_row(model.formView.performanceCookies, {'attr': {
+                    'class': 'js-cookies-performance-checkbox',
+                }}) -}}
+            </div>
+            <p>{{ 'cookies.performance_cookies.text'|trans }}</p>
+            {{ include('components/cookies-list.html.twig', {
+                cookiesList: model.cookies.performance_cookies
+            }) }}
+        </section>
+        <section class="py-8">
+            <div class="py-4 s768:flex s768:justify-between">
+                <h2>{{ 'cookies.targeting_cookies.title'|trans }}</h2>
+                {{- form_row(model.formView.targetingCookies, {'attr': {
+                    'class': 'js-cookies-targeting-checkbox',
+                }}) -}}
+            </div>
+            <p>{{ 'cookies.targeting_cookies.text'|trans }}</p>
+            {{ include('components/cookies-list.html.twig', {
+                cookiesList: model.cookies.targeting_cookies
+            }) }}
+        </section>
+        {{- form_row(model.formView.send, {'attr': {
+            'class': 'button js-cookies-save-preferences',
+        }}) -}}
+        <p class="text-sm hidden js-cookies-settings-saved">{{ 'cookies.updated'|trans }}</p>
+    {{- form_end(model.formView) -}}
+{% endblock %}
