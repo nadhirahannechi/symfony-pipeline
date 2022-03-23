@@ -53,29 +53,6 @@ pipeline {
             }
         }
 
-        stage('Continuous Integration - Node') {
-            agent {
-                docker {
-                    image 'runroom/node17'
-                    args '-v $HOME/npm:/home/node/.npm:z'
-                    reuseNode true
-                }
-            }
-
-            steps {
-                // Install
-                sh 'npm clean-install'
-
-                // Lint + QA
-                sh 'npx stylelint assets/css'
-                sh 'npx eslint assets/js'
-                sh 'npx prettier --check .github config assets translations webpack.config.js babel.config.js .eslintrc.js stylelint.config.js postcss.config.js prettier.config.js docker-compose.yaml servers.yaml'
-                sh 'npx tsc --pretty false'
-
-                // Build
-                sh 'npx encore production'
-            }
-        }
 
         stage('Continuous Deployment - Production') {
             when { expression { return env.BRANCH_NAME in ['main'] } }
