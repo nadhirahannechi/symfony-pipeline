@@ -7,7 +7,6 @@ pipeline {
 
     environment {
         APP_ENV = 'test'
-        HOME = '.'
 
     }
 
