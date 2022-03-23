@@ -3,8 +3,13 @@
 FOLDER_NAME = env.JOB_NAME.split('/')[0]
 
 pipeline {
-    agent any
-
+    agent {
+        docker {
+                    image 'runroom/php8.1-cli'
+                    args '-v $HOME/composer:/home/jenkins/.composer:z'
+                    reuseNode true
+                }
+    }
     environment {
         APP_ENV = 'test'
 
@@ -16,25 +21,20 @@ pipeline {
     }
 
     stages {
-        stage('Continuous Integration - PHP') {
-            agent {
-                docker {
-                    image 'runroom/php8.1-cli'
-                    args '-v $HOME/composer:/home/jenkins/.composer:z'
-                    reuseNode true
-                }
-            }
-
+        stage('Install packages') {
             steps {
                 // Install
                 sh 'composer install --no-progress --no-interaction'
-
-            
-
-                // Tests
+            }
+          }
+         stage('Coverage') {
+            steps {
+                // Coverage
                 sh 'vendor/bin/phpunit --log-junit coverage/unitreport.xml --coverage-html coverage'
-
-                // Report
+            }
+          }
+         stage('Unit Test') {
+            steps {
                 xunit([PHPUnit(
                     deleteOutputFiles: false,
                     failIfNotNew: false,
@@ -42,7 +42,11 @@ pipeline {
                     skipNoTestFiles: true,
                     stopProcessingIfError: false
                 )])
-                publishHTML(target: [
+            }
+          }
+         stage('Report') {
+            steps {
+                 publishHTML(target: [
                     allowMissing: false,
                     alwaysLinkToLastBuild: false,
                     keepAll: true,
@@ -51,7 +55,8 @@ pipeline {
                     reportName: 'Coverage Report'
                 ])
             }
-        }
+          }
+           
 
 
         stage('Continuous Deployment - Production') {
