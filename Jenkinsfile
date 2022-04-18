@@ -73,6 +73,6 @@ pipeline {
             [pattern: 'node_modules', type: 'EXCLUDE']
         ] }
         fixed { slackSend(color: 'good', message: "Fixed - ${FOLDER_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}")}
-        failure { slackSend(color: 'danger', message: "Failed - ${FOLDER_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}") }
-    }*/
+        failure { slackSend(color: 'danger', message: "Failed - ${FOLDER_NAME} - ${env.BUILD_DISPLAY_NAME} (<${env.BUILD_URL}|Open>)\n${env.BRANCH_NAME}") }*/
+    }
 }
