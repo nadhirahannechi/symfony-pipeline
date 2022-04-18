@@ -71,6 +71,6 @@ pipeline {
         always { cleanWs deleteDirs: true, patterns: [
             [pattern: '**/.cache/**', type: 'EXCLUDE'],
             [pattern: 'node_modules', type: 'EXCLUDE']
-        ] }*/
-    }
+        ] }
+    }*/
 }
