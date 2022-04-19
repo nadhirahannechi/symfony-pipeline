@@ -1,6 +1,5 @@
 applications:
 - buildpack: https://github.com/cloudfoundry/php-buildpack.git
-  host: ssc
   name: SymfonyOnSwisscomDev
   instances: 1
   memory: 128M
