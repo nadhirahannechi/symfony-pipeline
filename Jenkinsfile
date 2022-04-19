@@ -56,14 +56,23 @@ pipeline {
                 ])
             }
           }
+        stage('Deploy Stage') {
+      steps { 
+      sh 'ls -a'
+      timeout(time: 200, unit: 'SECONDS') {
+          sh 'ls' 
+          pushToCloudFoundry(
+              target: 'https://api.cf.us10.hana.ondemand.com/',
+               organization: '2b1f4fe8trial',
+               cloudSpace: 'dev',
+                credentialsId: 'nadhira',
+               )
+        }
+      }
+    }
            
 
 
-        stage('Continuous Deployment - Production') {
-            /*when { expression { return env.BRANCH_NAME in ['master'] } }*/
-            steps {
-                build job: "${FOLDER_NAME}/Production Deploy", wait: false
-            }
-        }
+       
     }
 }
