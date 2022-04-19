@@ -1,6 +1,6 @@
 ---
 applications:
-- name: dotnet-pipeline
+- name: symfony
   buildpack: https://github.com/cloudfoundry/php-buildpack.git
   instance: 1
   memory: 30M
