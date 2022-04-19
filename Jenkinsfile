@@ -59,7 +59,7 @@ pipeline {
         stage('Deploy Stage') {
       steps { 
       sh 'ls -a'
-      timeout(time: 200, unit: 'SECONDS') {
+      timeout(time: 500, unit: 'SECONDS') {
           sh 'ls' 
           pushToCloudFoundry(
               target: 'https://api.cf.us10.hana.ondemand.com/',
