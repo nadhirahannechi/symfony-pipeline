@@ -3,5 +3,7 @@ applications:
 - name: symfony
   buildpack: https://github.com/cloudfoundry/php-buildpack.git
   instance: 1
-  memory: 30M
+  memory: 150M
   disk_quota: 512M
+  random-route: true
+

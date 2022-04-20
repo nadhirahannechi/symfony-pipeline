@@ -1,0 +1,27 @@
+{
+  "WEB_SERVER": "httpd",
+  "ADMIN_EMAIL": "your-email@example.com",
+  "COMPOSER_INSTALL_OPTIONS": [
+    "--no-dev --optimize-autoloader --no-progress --no-interaction"
+  ],
+  "COMPOSER_VENDOR_DIR": "vendor",
+  "WEBDIR": "public",
+  "PHP_MODULES": [
+    "fpm",
+    "cli"
+  ],
+  "PHP_VERSION": "{PHP_80_LATEST}",
+  "PHP_EXTENSIONS": [
+    "bz2",
+    "zlib",
+    "curl",
+    "openssl",
+    "mbstring",
+    "pdo",
+    "pdo_mysql",
+    "apcu"
+  ],
+  "ZEND_EXTENSIONS": [
+    "opcache"
+  ]
+}
