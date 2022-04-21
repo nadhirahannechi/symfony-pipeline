@@ -1,9 +1,3 @@
-# This is the main entry point for the project routes.
-# All routes should be placed inside routes_frontoffice.yaml.
-routes_frontoffice:
-    resource: "routes_frontoffice.yaml"
-    prefix:
-        es: /es
-        ca: /ca
-        en: /
-    trailing_slash_on_root: false
+index:
+   path: /
+   controller: App\Controller\HomePageController::index

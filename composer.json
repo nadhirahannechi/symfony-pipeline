@@ -26,6 +26,7 @@
         "knplabs/doctrine-behaviors": "2.6.0",
         "runroom-packages/basic-page-bundle": "0.15.6",
         "runroom-packages/ckeditor-sonata-media-bundle": "0.15.6",
+        "easycorp/easyadmin-bundle": "^2.3",
         "runroom-packages/cookies-bundle": "0.15.6",
         "runroom-packages/redirection-bundle": "0.15.6",
         "runroom-packages/seo-bundle": "0.15.6",

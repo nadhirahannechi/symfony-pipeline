@@ -6,4 +6,6 @@ applications:
   memory: 150M
   disk_quota: 512M
   random-route: true
+  env:
+    APP_ENV: prod
 
